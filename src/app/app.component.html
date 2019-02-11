@@ -1,0 +1,24 @@
+<form>
+  <select name="easing" [(ngModel)]="easing">
+    <option>linear</option>
+    <option>easeIn</option>
+    <option>easeOut</option>
+    <option>easeInOut</option>
+    <option>hops</option>
+    <option>waves</option>
+  </select>
+  <input name="ms" type="number" [(ngModel)]="ms">
+
+  <button (click)="setEasing()">Set easing</button>
+</form>
+
+<br><br>
+
+<input type="text" value="150" #source>
+
+<button (click)="setValue(source.value)">Set number</button>
+
+<p>Value: {{value | async}}</p>
+<p>Animated value: {{animatedValue | async}}</p>
+
+<span style="position:relative;" [style.left]="(animatedValue | async) + 'px'">&times;</span>
